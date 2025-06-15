@@ -7,10 +7,6 @@
       return input.toLocaleLowerCase();
     }
   }
-
-  // console.log(formatString("abc"));
-  // console.log(formatString("def", true));
-  // console.log(formatString("gdh", false));
 }
 //PROBLEM 2
 {
@@ -31,7 +27,7 @@
 
   // console.log(filterByRating(books));
 }
-//PROBLEM 3 Description: Create a generic function that concatenates multiple arrays of the same type using rest parameters.
+//PROBLEM 3
 {
   function concatenateArrays<T>(...arrays: T[][]): T[] {
     let result: T[] = [];
@@ -43,7 +39,27 @@
   }
 }
 //PROBLEM 4
+
 {
+  class vehicle {
+    constructor(private make: string, public year: number) {}
+    getInfo() {
+      return `"Make: ${this.make}, Year: ${this.year}"`;
+    }
+  }
+
+  class car extends vehicle {
+    constructor(make: string, year: number, private model: string) {
+      super(make, year);
+    }
+    getModel() {
+      return `"Model: ${this.model}"`;
+    }
+  }
+
+  const myCar = new car("Toyota", 2020, "corolla");
+  // console.log(myCar.getInfo());
+  // console.log(myCar.getModel());
 }
 //PROBLEM 5
 {
@@ -60,7 +76,69 @@
 }
 // PROBLEM 6
 {
+  interface Product {
+    name: string;
+    price: number;
+  }
+
+  function getMostExpensiveProduct(products: Product[]): Product | null {
+    const prices: number[] = products.map((product) => product.price);
+
+    const sortedPrice = prices.sort((a, b) => a - b);
+    const maxPrice = sortedPrice[sortedPrice.length - 1];
+    // console.log(maxPrice);
+
+    const result: Product | undefined = products.find(
+      (product) => product.price == maxPrice
+    );
+    if (result) {
+      return result;
+    } else {
+      return null;
+    }
+  }
+
+  // console.log(getMostExpensiveProduct([]));
 }
 // PROBLEM 7
 {
+  enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday,
+  }
+
+  function getDayType(day: Day): string {
+    if ((day === Day.Sunday, Day.Saturday)) {
+      return "weekend";
+    } else {
+      return "weekday";
+    }
+  }
+
+  // console.log(getDayType(Day.Friday));
+  // console.log(getDayType(Day.Sunday));
+}
+//PROBLEM 8
+{
+  async function squareAsync(n: number): Promise<number> {
+    const myPromise: Promise<number> = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (n >= 0) {
+          return resolve(n * n);
+        } else {
+          return reject(new Error("Negative number not allowed"));
+        }
+      }, 1000);
+    });
+
+    return await myPromise;
+  }
+
+  squareAsync(4).then(console.log);
+  squareAsync(-3).catch(console.error);
 }
