@@ -1,4 +1,3 @@
-//PROBLEM 1
 {
   function formatString(input: string, toUpper?: boolean): string {
     if (toUpper === true || toUpper === undefined) {
@@ -7,8 +6,9 @@
       return input.toLocaleLowerCase();
     }
   }
+  formatString("Mohsin");
 }
-//PROBLEM 2
+
 {
   const books: { title: string; rating: number }[] = [
     { title: "Book A", rating: 4.5 },
@@ -25,9 +25,9 @@
     return upRating;
   }
 
-  // console.log(filterByRating(books));
+  console.log(filterByRating(books));
 }
-//PROBLEM 3
+
 {
   function concatenateArrays<T>(...arrays: T[][]): T[] {
     let result: T[] = [];
@@ -38,7 +38,6 @@
     return result;
   }
 }
-//PROBLEM 4
 
 {
   class vehicle {
@@ -58,10 +57,10 @@
   }
 
   const myCar = new car("Toyota", 2020, "corolla");
-  // console.log(myCar.getInfo());
-  // console.log(myCar.getModel());
+  console.log(myCar.getInfo());
+  console.log(myCar.getModel());
 }
-//PROBLEM 5
+
 {
   function processValue(value: string | number): number {
     if (typeof value === "string") {
@@ -71,10 +70,9 @@
     }
   }
 
-  // console.log(processValue("Tech jaint"));
-  // console.log(processValue(58));
+  console.log(processValue("Tech jaint"));
+  console.log(processValue(58));
 }
-// PROBLEM 6
 {
   interface Product {
     name: string;
@@ -86,7 +84,7 @@
 
     const sortedPrice = prices.sort((a, b) => a - b);
     const maxPrice = sortedPrice[sortedPrice.length - 1];
-    // console.log(maxPrice);
+    console.log(maxPrice);
 
     const result: Product | undefined = products.find(
       (product) => product.price == maxPrice
@@ -98,9 +96,8 @@
     }
   }
 
-  // console.log(getMostExpensiveProduct([]));
+  console.log(getMostExpensiveProduct([]));
 }
-// PROBLEM 7
 {
   enum Day {
     Monday,
@@ -120,10 +117,9 @@
     }
   }
 
-  // console.log(getDayType(Day.Friday));
-  // console.log(getDayType(Day.Sunday));
+  console.log(getDayType(Day.Friday));
+  console.log(getDayType(Day.Sunday));
 }
-//PROBLEM 8
 {
   async function squareAsync(n: number): Promise<number> {
     const myPromise: Promise<number> = new Promise((resolve, reject) => {
